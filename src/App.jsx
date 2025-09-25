@@ -12,6 +12,7 @@ import './charts/ChartjsConfig';
 // Import pages
 import Dashboard from './pages/Dashboard';
 
+// jgs20250921: App es un Component: comienza en mayuscula, retorna codigo que puede ser renderizado.
 function App() {
 
   const location = useLocation();
@@ -22,6 +23,8 @@ function App() {
     document.querySelector('html').style.scrollBehavior = ''
   }, [location.pathname]); // triggered on route change
 
+  // jgs20250921: Routes es un Component, Route es un Component.
+  // 
   return (
     <>
       <Routes>
