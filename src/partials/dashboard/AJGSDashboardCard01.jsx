@@ -9,7 +9,7 @@ function AJGSDashboardCard01() {
     <div className="flex flex-col col-span-full sm:col-span-12 bg-white dark:bg-gray-800 shadow-xs rounded-xl h-[80vh] overflow-hidden">
       {/* Header */}
       <header className="px-5 py-4 border-b border-gray-100 dark:border-gray-700/60 flex items-center">
-        <h2 className="font-semibold text-gray-800 dark:text-gray-100">Google Earth Studio</h2>
+        <h2 className="font-semibold text-gray-800 dark:text-gray-100">Google Earth Studio.</h2>
       </header>
 
       {/* Contenido */}
