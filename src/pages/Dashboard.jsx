@@ -5,6 +5,7 @@ import Header from '../partials/Header';
 import FilterButton from '../components/DropdownFilter';
 import Datepicker from '../components/Datepicker';
 import AJGSDashboardCard01 from '../partials/dashboard/AJGSDashboardCard01';
+import AJGSBottomPanel from '../partials/dashboard/AJGSBottomPanel';
 import DashboardCard01 from '../partials/dashboard/DashboardCard01';
 import DashboardCard02 from '../partials/dashboard/DashboardCard02';
 import DashboardCard03 from '../partials/dashboard/DashboardCard03';
@@ -101,6 +102,8 @@ function Dashboard() {
         </main>
 
         <Banner />
+        {/* Componente fijo en la parte inferior */}
+        <AJGSBottomPanel />
 
       </div>
     </div>
