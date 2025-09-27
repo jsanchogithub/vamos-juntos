@@ -74,9 +74,13 @@ function Dashboard() {
             </div>
 
             {/* Cards */}
+            <div className="grid grid-cols-12 gap-6 h-[80vh]">
+              <AJGSDashboardCard01 className="col-span-12" />
+            </div>
             <div className="grid grid-cols-12 gap-6">
 
-              <AJGSDashboardCard01 />
+              {/* <AJGSDashboardCard01 /> */}
+
               {/* Line chart (Acme Plus) */}
               <DashboardCard01 />
               {/* Line chart (Acme Advanced) */}
