@@ -6,6 +6,7 @@ import FilterButton from '../components/DropdownFilter';
 import Datepicker from '../components/Datepicker';
 import AJGSDashboardCard01 from '../partials/dashboard/AJGSDashboardCard01';
 import AJGSBottomPanel from '../partials/dashboard/AJGSBottomPanel';
+import AJGSRightPanel from '../partials/dashboard/AJGSRightPanel';
 import DashboardCard01 from '../partials/dashboard/DashboardCard01';
 import DashboardCard02 from '../partials/dashboard/DashboardCard02';
 import DashboardCard03 from '../partials/dashboard/DashboardCard03';
@@ -37,8 +38,13 @@ function Dashboard() {
         {/*  Site header */}
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
-        <main className="grow">
-          <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+        {/* jgs20250927 <main className="grow"> */}
+        {/* margen inferior (BottomPanel) + margen derecho (RightPanel) */}
+        <main className="grow pb-[20vh] pr-[10vw]">
+
+          {/* jgs20250927 <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">  */}
+          {/* Forzamos que todo el contenido solo ocupe 90% del ancho */}
+          <div className="px-4 sm:px-6 lg:px-8 py-8 w-[90vw] max-w-[90vw] mx-auto">
 
             {/* Dashboard actions */}
             <div className="sm:flex sm:justify-between sm:items-center mb-8">
@@ -102,8 +108,9 @@ function Dashboard() {
         </main>
 
         <Banner />
-        {/* Componente fijo en la parte inferior */}
+        {/* Componentes fijos */}
         <AJGSBottomPanel />
+        <AJGSRightPanel />
 
       </div>
     </div>
