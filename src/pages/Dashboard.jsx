@@ -45,9 +45,11 @@ function Dashboard() {
           {/* jgs20250927 <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">  */}
           {/* Forzamos que todo el contenido solo ocupe 90% del ancho */}
           {/* <div className="px-4 sm:px-6 lg:px-8 py-8 w-[90vw] max-w-[90vw] mx-auto"> */}
+
            <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[90vw]">
 
             {/* Dashboard actions */}
+            {1 === 2 && (
             <div className="sm:flex sm:justify-between sm:items-center mb-8">
 
               {/* Left: Title */}
@@ -72,6 +74,7 @@ function Dashboard() {
                 </button>
               </div>
             </div>
+            )}
 
             {/* Cards */}
             <div className="grid grid-cols-12 gap-6 h-[80vh]">
