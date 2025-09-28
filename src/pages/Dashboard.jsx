@@ -23,105 +23,42 @@ import DashboardCard13 from '../partials/dashboard/DashboardCard13';
 import Banner from '../partials/Banner';
 
 function Dashboard() {
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="flex h-screen overflow-hidden">
-
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
       {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-
-        {/*  Site header */}
+      <div className="relative flex flex-col flex-1 overflow-hidden">
+        {/* Site header */}
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
-        {/* jgs20250927 <main className="grow"> */}
         {/* margen inferior (BottomPanel) + margen derecho (RightPanel) */}
-        <main className="grow pb-[20vh] pr-[10vw]">
-
-          {/* jgs20250927 <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">  */}
-          {/* Forzamos que todo el contenido solo ocupe 90% del ancho */}
-          {/* <div className="px-4 sm:px-6 lg:px-8 py-8 w-[90vw] max-w-[90vw] mx-auto"> */}
-
-          {/* <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[90vw]"> */}
-          <div className="px-4 sm:px-6 lg:px-8 w-full max-w-[90vw]">
-
-            {/* Dashboard actions */}
-            {1 === 2 && (
-            <div className="sm:flex sm:justify-between sm:items-center mb-8">
-
-              {/* Left: Title */}
-              <div className="mb-4 sm:mb-0">
-                <h1 className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Dashboard</h1>
-              </div>
-
-              {/* Right: Actions */}
-              <div className="flex flex-wrap justify-end gap-2 max-w-full">
-                <FilterButton align="right" />
-                <Datepicker align="right" />
-                <button className="btn bg-gray-900 text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white">
-                  <svg
-                    className="fill-current shrink-0 xs:hidden"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-                  </svg>
-                  <span className="max-xs:sr-only">Add View</span>
-                </button>
-              </div>
-            </div>
-            )}
-
+        <main
+          className="flex flex-col grow pr-[10vw]"
+          style={{
+            height: "calc(100vh - 20vh - 4rem)" // 20vh bottomPanel + ~4rem header
+          }}
+        >
+          <div className="px-4 sm:px-6 lg:px-8 w-full max-w-[90vw] flex flex-col grow">
             {/* Cards */}
-            <div className="grid grid-cols-12 gap-6 h-[80vh]">
+            <div className="grid grid-cols-12 gap-6 grow">
               <AJGSDashboardCard01 className="col-span-12" />
             </div>
+
             <div className="grid grid-cols-12 gap-6">
-
-              {/* <AJGSDashboardCard01 /> */}
-
-              {/* Line chart (Acme Plus) */}
-              <DashboardCard01 />
-              {/* Line chart (Acme Advanced) */}
-              <DashboardCard02 />
-              {/* Line chart (Acme Professional) */}
-              <DashboardCard03 />
-              {/* Bar chart (Direct vs Indirect) */}
-              <DashboardCard04 />
-              {/* Line chart (Real Time Value) */}
-              <DashboardCard05 />
-              {/* Doughnut chart (Top Countries) */}
-              <DashboardCard06 />
-              {/* Table (Top Channels) */}
-              <DashboardCard07 />
-              {/* Line chart (Sales Over Time) */}
-              <DashboardCard08 />
-              {/* Stacked bar chart (Sales VS Refunds) */}
-              <DashboardCard09 />
-              {/* Card (Customers) */}
-              <DashboardCard10 />
-              {/* Card (Reasons for Refunds) */}
-              <DashboardCard11 />
-              {/* Card (Recent Activity) */}
-              <DashboardCard12 />
-              {/* Card (Income/Expenses) */}
-              <DashboardCard13 />
-              
+              {/* Aquí podrías poner otros DashboardCards si los necesitas */}
             </div>
-
           </div>
         </main>
 
         <Banner />
+
         {/* Componentes fijos */}
         <AJGSBottomPanel />
         <AJGSRightPanel />
-
       </div>
     </div>
   );
