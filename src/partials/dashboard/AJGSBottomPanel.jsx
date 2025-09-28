@@ -29,7 +29,7 @@ function AJGSBottomPanel() {
 
       {/* Panel derecho: salida */}
       <div className="w-4/5 p-2 flex flex-col">
-        <label className="text-xs text-gray-400 mb-1 block">Salida<.../label>
+        <label className="text-xs text-gray-400 mb-1 block">Salida...</label>
         <div className="bg-gray-800 flex-grow rounded p-2 text-sm font-mono overflow-y-auto whitespace-pre-wrap">
           {output.length === 0 ? (
             <span className="text-gray-500">No hay salida todavía...</span>
