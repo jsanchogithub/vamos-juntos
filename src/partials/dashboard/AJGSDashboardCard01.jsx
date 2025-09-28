@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Tooltip from '../../components/Tooltip';
 
 function AJGSDashboardCard01() {
   const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
   const [server, setServer] = useState("Servidor local");
+  const { t } = useTranslation();
 
   useEffect(() => {
     const updateSize = () => setScreenSize({ width: window.innerWidth, height: window.innerHeight });
@@ -23,6 +26,7 @@ function AJGSDashboardCard01() {
         className="absolute inset-0 cursor-pointer z-10"
         onClick={openEarthStudio}
       >
+        <h2 className="font-semibold text-gray-800 dark:text-gray-100">{t('realtime_value')}</h2>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
           alt="Tierra"

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
@@ -24,6 +25,7 @@ import Banner from '../partials/Banner';
 
 function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -32,8 +34,21 @@ function Dashboard() {
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-hidden">
+
         {/* Site header */}
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+
+      {/* Selector de idioma temporal a la izquierda */}
+        <div className="absolute top-4 left-4 flex gap-2 z-50">
+          <button onClick={() => i18n.changeLanguage('es')} className="px-2 py-1 bg-gray-700 rounded text-xs hover:bg-gray-600">ES</button>
+          <button onClick={() => i18n.changeLanguage('en')} className="px-2 py-1 bg-gray-700 rounded text-xs hover:bg-gray-600">EN</button>
+          <h1>{t('dashboard_title')}</h1>
+          <p>{t('realtime_value')}</p>
+        </div>
+        
+      {/* Texto traducido */}
+      <h1 className="text-2xl font-bold mb-2">{t('realtime_value')}</h1>
+      <p>Este texto debería cambiar según el idioma seleccionado.</p>
 
         {/* margen inferior (BottomPanel) + margen derecho (RightPanel) */}
         <main
