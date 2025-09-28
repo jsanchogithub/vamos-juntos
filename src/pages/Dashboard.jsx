@@ -46,7 +46,8 @@ function Dashboard() {
           {/* Forzamos que todo el contenido solo ocupe 90% del ancho */}
           {/* <div className="px-4 sm:px-6 lg:px-8 py-8 w-[90vw] max-w-[90vw] mx-auto"> */}
 
-           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[90vw]">
+          {/* <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[90vw]"> */}
+          <div className="px-4 sm:px-6 lg:px-8 w-full max-w-[90vw]">
 
             {/* Dashboard actions */}
             {1 === 2 && (
