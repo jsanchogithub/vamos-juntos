@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import ReactFlagsSelect from 'react-flags-select';
 
 import SearchModal from '../components/ModalSearch';
 import Notifications from '../components/DropdownNotifications';
@@ -11,6 +12,15 @@ function Header({ sidebarOpen, setSidebarOpen, variant = 'default' }) {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const { t, i18n } = useTranslation();
 
+  const [selected, setSelected] = useState(
+    i18n.language.startsWith('es') ? 'ES' : 'GB'
+  );
+
+  const onSelect = (code) => {
+    setSelected(code);
+    i18n.changeLanguage(code.toLowerCase());
+  };
+
   return (
     <header
       className={`sticky top-0 before:absolute before:inset-0 before:backdrop-blur-md max-lg:before:bg-white/90 dark:max-lg:before:bg-gray-800/90 before:-z-10 z-30 pr-[10vw] ${
@@ -21,9 +31,9 @@ function Header({ sidebarOpen, setSidebarOpen, variant = 'default' }) {
         variant === 'v3' ? 'dark:before:bg-gray-900' : ''
       }`}
       style={{
-        height: '5vh',         // 🔹 siempre el 7% de la pantalla
-        minHeight: '5vh',      // 🔹 asegura altura mínima
-        maxHeight: '5vh',      // 🔹 evita crecer por contenido interno
+        height: '7vh', // 🔹 siempre el 7% del alto del viewport
+        minHeight: '7vh',
+        maxHeight: '7vh',
       }}
     >
       <div className="px-4 sm:px-6 lg:px-8 h-full flex items-center">
@@ -34,9 +44,9 @@ function Header({ sidebarOpen, setSidebarOpen, variant = 'default' }) {
               : 'lg:border-b border-gray-200 dark:border-gray-700/60'
           }`}
         >
-          {/* Header: Left side */}
-          <div className="flex">
-            {/* Hamburger button */}
+          {/* 🔹 Left side */}
+          <div className="flex items-center">
+            {/* Botón sidebar */}
             <button
               className="text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 lg:hidden"
               aria-controls="sidebar"
@@ -57,28 +67,26 @@ function Header({ sidebarOpen, setSidebarOpen, variant = 'default' }) {
                 <rect x="4" y="17" width="16" height="2" />
               </svg>
             </button>
+
+            {/* 🔹 Selector de idioma con banderas */}
+            <div className="ml-4">
+              <ReactFlagsSelect
+                selected={selected}
+                onSelect={onSelect}
+                countries={['ES', 'GB']}
+                customLabels={{ ES: 'ES', GB: 'EN' }}
+                className="!text-xs !w-[70px]"
+                selectButtonClassName="!p-1 !h-7 !text-xs border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800"
+                fullWidth={false}
+              />
+              <span className="text-xs font-medium">
+                  {selected === 'ES' ? t('realtime_value') : t('realtime_value')}
+              </span>
+            </div>
           </div>
 
-          {/* Header: Right side */}
+          {/* 🔹 Right side */}
           <div className="flex items-center space-x-3">
-            {/* Selector de idioma temporal */}
-            <div className="absolute top-4 left-4 flex gap-2 z-50">
-              <button
-                onClick={() => i18n.changeLanguage('es')}
-                className="px-2 py-1 bg-gray-700 rounded text-xs hover:bg-gray-600"
-              >
-                ES
-              </button>
-              <button
-                onClick={() => i18n.changeLanguage('en')}
-                className="px-2 py-1 bg-gray-700 rounded text-xs hover:bg-gray-600"
-              >
-                EN
-              </button>
-              <h1>{t('dashboard_title')}</h1>
-              <p>{t('realtime_value')}</p>
-            </div>
-
             <div>
               <button
                 className={`w-8 h-8 flex items-center justify-center hover:bg-gray-100 lg:hover:bg-gray-200 dark:hover:bg-gray-700/50 dark:lg:hover:bg-gray-800 rounded-full ml-3 ${

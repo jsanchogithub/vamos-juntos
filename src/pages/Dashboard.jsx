@@ -45,7 +45,7 @@ function Dashboard() {
         <AJGSBottomPanel className="h-full" />
 
         {/* Componentes fijos (no afectan la grid) */}
-        <Banner />
+        {/* <Banner /> */}
         <AJGSRightPanel />
       </div>
     </div>
