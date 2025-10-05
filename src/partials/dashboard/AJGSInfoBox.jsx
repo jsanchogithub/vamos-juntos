@@ -5,18 +5,19 @@ function AJGSInfoBox({ position = "bottom-right", screenSize, server }) {
   const boxWidth = isPortrait ? "80%" : "30%";
   const boxHeight = isPortrait ? "20%" : "25%";
 
-  // Margen de seguridad dinámico
+  // Margen interno básico
   const safeMargin = isPortrait ? 8 : 12; // px
 
-  // Clases base de estilo
-  const baseClasses =
-    "absolute bg-black/70 text-white p-4 text-sm overflow-auto z-20 transition-all duration-500 rounded-lg";
+  // Si está a la derecha → deja 11% de margen (panel derecho ocupa 10%)
+  const rightOffset = screenSize.width * 0.11; // 11% del ancho del viewport
 
-  // Estilos específicos de posición
+  const baseClasses =
+    "absolute bg-black/70 text-white p-4 text-sm overflow-auto z-50 transition-all duration-500 rounded-lg shadow-lg";
+
   const positionStyle = {
-    "bottom-right": { bottom: safeMargin, right: safeMargin },
+    "bottom-right": { bottom: safeMargin, right: rightOffset },
     "bottom-left": { bottom: safeMargin, left: safeMargin },
-    "top-right": { top: safeMargin, right: safeMargin },
+    "top-right": { top: safeMargin, right: rightOffset },
     "top-left": { top: safeMargin, left: safeMargin },
   };
 
