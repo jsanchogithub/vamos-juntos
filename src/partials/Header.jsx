@@ -13,7 +13,7 @@ function Header({ sidebarOpen, setSidebarOpen, variant = 'default' }) {
   const { t, i18n } = useTranslation();
 
   const [selected, setSelected] = useState(
-    i18n.language.startsWith('es') ? 'ES' : 'GB'
+    i18n.language?.slice(0, 2) === 'es' ? 'ES' : 'GB'
   );
 
   const onSelect = (code) => {
