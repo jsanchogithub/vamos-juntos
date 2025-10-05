@@ -31,9 +31,9 @@ function Header({ sidebarOpen, setSidebarOpen, variant = 'default' }) {
         variant === 'v3' ? 'dark:before:bg-gray-900' : ''
       }`}
       style={{
-        height: '7vh', // 🔹 siempre el 7% del alto del viewport
-        minHeight: '7vh',
-        maxHeight: '7vh',
+        height: '5vh', // 🔹 siempre el 5% del alto del viewport
+        minHeight: '5vh',
+        maxHeight: '5vh',
       }}
     >
       <div className="px-4 sm:px-6 lg:px-8 h-full flex items-center">
